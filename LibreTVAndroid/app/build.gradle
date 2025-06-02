@@ -1,0 +1,64 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.libretv.android'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.libretv.android"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // IMPORTANT: You must configure signing for release builds.
+            // This typically involves creating a keystore.properties file with your keystore details
+            // and then loading it here. For example:
+            //
+            // signingConfigs {
+            //     release {
+            //         storeFile file("your_release_keystore.jks")
+            //         storePassword System.getenv("KEYSTORE_PASSWORD") ?: ""
+            //         keyAlias System.getenv("KEY_ALIAS") ?: ""
+            //         keyPassword System.getenv("KEY_PASSWORD") ?: ""
+            //     }
+            // }
+            // signingConfig signingConfigs.release
+            //
+            // For this placeholder, we'll use the debug signing config to make it buildable without a keystore.
+            // However, this IS NOT SUITABLE FOR ACTUAL RELEASE.
+            signingConfig signingConfigs.debug // Replace with signingConfigs.release for actual releases
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.12.0' // Example: Use a recent stable version
+    implementation 'androidx.appcompat:appcompat:1.6.1' // Example: Use a recent stable version
+    implementation 'com.google.android.material:material:1.11.0' // Example: Use a recent stable version
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4' // Example: Use a recent stable version
+    implementation 'androidx.browser:browser:1.7.0' // As specified
+    implementation 'androidx.core:core-splashscreen:1.0.1' // For Splash Screen API
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
