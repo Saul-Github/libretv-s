@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">LibreTV</string>
+    <string name="asset_statements" translatable="false">
+"[{
+  \"relation\": [\"delegate_permission/common.handle_all_urls\"],
+  \"target\": {
+    \"namespace\": \"android_app\",
+    \"package_name\": \"com.libretv.android\",
+    \"sha256_cert_fingerprints\": [\"PLACEHOLDER_SHA256_FINGERPRINT_YOU_MUST_REPLACE_WITH_YOUR_KEYSTORE_FINGERPRINT\"]
+  }
+}]"
+    </string>
+</resources>
